@@ -10,7 +10,51 @@ package com.mycompany.semana_6;
  */
 public class SEMANA_6 {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    private double precio;
+    private double cantidad;
+    private String codigo;
+    private String marca;
+    private String talla;
+    private String nombreProducto;
+
+   
+    public class CatProductos {
+    private int codigo;
+    private int cantidad;
+    public String nombreProducto;
+    private String marca;
+    private double precio;
+    private String talla;
+    
+    
+    //CONSTURCTOR    
+    public CatProductos(int codigo, int cantidad,String nombreProducto,String marca, double precio,String talla){
+        this.codigo = codigo;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.nombreProducto= nombreProducto;
+        this.marca = marca;
+        this.talla = talla;
+    }
+        
+    }
+    
+    public double calcularPrecio(){
+    
+     return precio;
+    }
+    public double totalProducto(){
+      return precio * cantidad;
+    }
+
+@Override
+    public String toString(){
+    
+        String cadena = "producto: " + nombreProducto
+                + " " + marca + talla + " "
+                + codigo;
+        return cadena;
     }
 }
+
+

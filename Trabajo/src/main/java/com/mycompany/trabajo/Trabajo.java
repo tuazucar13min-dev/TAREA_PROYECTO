@@ -8,6 +8,8 @@ package com.mycompany.trabajo;
 import java.util.Scanner;
 import com.mycompany.trabajo.Trabajo;
 import com.mycompany.trabajo.Producto;
+
+
 /**
  *
  * @author CIELO
@@ -90,5 +92,6 @@ public class Trabajo {
         
            
     }    
+    
     
 }

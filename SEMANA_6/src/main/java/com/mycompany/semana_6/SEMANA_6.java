@@ -12,13 +12,15 @@ public class SEMANA_6 {
 
     private double precio;
     private double cantidad;
-    private String codigo;
+    private String nombreProducto;
     private String marca;
     private String talla;
-    private String nombreProducto;
+    private String codigo;
+
+    
 
    
-    public class CatProductos {
+    public class Producto{
     private int codigo;
     private int cantidad;
     public String nombreProducto;
@@ -28,7 +30,7 @@ public class SEMANA_6 {
     
     
     //CONSTURCTOR    
-    public CatProductos(int codigo, int cantidad,String nombreProducto,String marca, double precio,String talla){
+    public Producto(int codigo, int cantidad,String nombreProducto,String marca, double precio,String talla){
         this.codigo = codigo;
         this.cantidad = cantidad;
         this.precio = precio;

@@ -18,13 +18,14 @@ package com.mycompany.trabajo;
     
     
    
-    public Producto(int codigo, int cantidad,String nombreProducto,String marca, double precio,String talla){
+    public Producto(int codigo, int cantidad, BaseDatos bd ){
         this.codigo = codigo;
         this.cantidad = cantidad;
-        this.precio = precio;
-        this.nombreProducto= nombreProducto;
-        this.marca = marca;
-        this.talla = talla;
+         String[] datos = bd.buscarProducto(codigo, cantidad);
+        if (datos != null) {
+            this.nombreProducto = datos[0];
+            this.marca = datos[1];
+            this.precio = Double.parseDouble(datos[2]);
     }
         
     }
@@ -47,6 +48,7 @@ package com.mycompany.trabajo;
                 + codigo;
         return cadena;
     }
+
 }
 
 

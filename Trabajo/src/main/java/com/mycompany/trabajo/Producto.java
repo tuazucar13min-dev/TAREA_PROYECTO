@@ -14,7 +14,6 @@ package com.mycompany.trabajo;
     public String nombreProducto;
     private String marca;
     private double precio;
-    private String talla;
     
     
    
@@ -27,10 +26,19 @@ package com.mycompany.trabajo;
             this.marca = datos[1];
             this.precio = Double.parseDouble(datos[2]);
     }
-        
+        else {
+            this.nombreProducto = " Producto no encontrado";
+            this.marca =" N/A";
+            this.precio = 0.0;
+        }
     }
-    
-   
+    // Getters necearios para Factura 
+   public int getCodigo(){ return codigo; }
+   public int getCantidad(){ return cantidad; }
+   public String getNombreProducto() { return nombreProducto;}
+   public String getMarca(){ return marca;}
+   public double getPrecio(){ return precio;}
+
     public double calcularPrecio(){
     
      return precio;
@@ -43,10 +51,8 @@ package com.mycompany.trabajo;
     @Override
     public String toString(){
     
-        String cadena = "producto: " + nombreProducto
-                + " " + marca + talla + " "
-                + codigo;
-        return cadena;
+    return String.format("Producto: %s %s - cod: %d - cant: %d - Precio: S/%.2f ", 
+            nombreProducto, marca, codigo, cantidad, precio);
     }
 
 }

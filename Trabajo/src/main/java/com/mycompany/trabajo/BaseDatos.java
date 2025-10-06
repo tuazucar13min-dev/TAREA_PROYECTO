@@ -4,72 +4,38 @@
  */
 package com.mycompany.trabajo;
 import java.util.ArrayList;
-
+import java.util.HashMap; 
 
 public class BaseDatos {
-    private String[][] productos;// para seleccionar
-    private double[][] precios;
+    private HashMap<Integer, String[]> productosMap ;// para seleccionar
+    private HashMap<Integer, Double > preciosMap;
     private ArrayList<Producto> productoselec;
     private String[] lista1;// para seleccionar
     private String[] lista2;// para seleccionar
     private String[] lista3;// para seleccionar
     private ArrayList<ListaProducto> listasCompradas; //rellenar
-    private String[] clientes;//se rellena
- 
+    
+  public void agregarLista(ListaProducto lista){
+        listasCompradas.add(lista);
+    }  
 
-
+public void mostrarLista(String[] lista) {
+    for (int i = 0; i < lista.length; i++) {
+        System.out.printf(" %2d. %s%n", i + 1, lista[i]);
+    }
+}
 
 public BaseDatos(){
-this.productos= new String[][]{
-     //MUJERES
-    
-     {"1001", " POLO "," Dior " },
-     {"1002", " polo "," Dior" },
-     {"1003", " Camisa  "," Dior " },
-     {"1004", " Camisa  "," Dior " },
-     {"1005", " Chompa   "," Dior" },
-     {"1006", " Chompa  "," Dior" },
-    
-     {"1007", " POLO "," Zara " },
-     {"1008", " polo "," Zara" },
-     {"1009", " Camisa  "," Zara " },
-     {"1010", " Camisa  "," Zara " },
-     {"1011", " Chompa   "," Zara" },
-     {"1012", " Chompa  "," Zara " },
+    // Iniciañizar tablas hash 
+    productosMap= new HashMap<>();
+    preciosMap = new HashMap<>();
+
+    // confirmar productos en tabla hash 
+    inicializarProductos();
     
 
-     // HOMBRES 
-     {"1013", " POLO "," Dior " },
-     {"1014", " polo "," Dior" },
-     {"1015", " Camisa  "," Dior " },
-     {"1016", " Camisa  "," Dior " },
-     {"1017", " Chompa   "," Dior" },
-     {"1018", " Chompa  "," Dior" },
-    
-     {"1019", " POLO "," Zara " },
-     {"1020", " polo "," Zara" },
-     {"1021", " Camisa  "," Zara " },
-     {"1022", " Camisa  "," Zara " },
-     {"1023", " Chompa   "," Zara" },
-     {"1024", " Chompa  "," Zara " },
- 
-      };
-    this.precios = new double[][]{
-     //MUJERES 
-     { 10, 20 },     // Dior , ZARA
-     { 40, 50 },
-     { 70, 80},
-     { 100, 200},
-     { 400, 500 },
-     //HOBRES 
-     {10, 20 },     // Dior , ZARA
-     { 40, 50},
-     { 70, 80},
-     { 100, 200},
-     { 400, 500},
-        };
-     // Listas 
-        this.lista1 = new String[]{
+    // Listas de ropa 
+    this.lista1 = new String[]{
             "Cuadernos A4 rayados - 5 unidades",
             "Lapices de grafito HB - 1 caja",
             "Borrador blanco - 2 unidades",
@@ -105,44 +71,83 @@ this.productos= new String[][]{
             "Goma en barra grande - 1 unidad",
             "Cartuchera con cierre - 1 unidad"
         };
-        
-        //almacenar productos y listas
-        productoselec = new ArrayList<>();
+          productoselec = new ArrayList<>();
         listasCompradas = new ArrayList<>();
     }
+    
+    private void inicializarProductos(){
+    // MUJERES DIOR 
+    productosMap.put( 1001, new String[]{ "POLO"," Dior "});
+    preciosMap.put(1001, 10.0);
+    productosMap.put( 1002, new String[]{ "POLO"," Dior "});
+    preciosMap.put(1002, 10.0);
+    productosMap.put( 1003, new String[]{ "C"," Dior "});
+    preciosMap.put(1003, 10.0);
+    productosMap.put( 1004, new String[]{ "C"," Dior "});
+    preciosMap.put(1004, 10.0);
+    productosMap.put( 1005, new String[]{ "CHO"," Dior "});
+    preciosMap.put(1005, 10.0);
+    productosMap.put( 1006, new String[]{ "CHO"," Dior "});
+    preciosMap.put(1006, 10.0);
+     
+    // MUJERES ZARA
+    productosMap.put( 1007, new String[]{ "POLO"," Zara "});
+    preciosMap.put(1007, 10.0);
+    productosMap.put( 1008, new String[]{ "POLO"," Zara "});
+    preciosMap.put(1008, 10.0);
+    productosMap.put( 1009, new String[]{ "C"," Zara "});
+    preciosMap.put(1009, 10.0);
+    productosMap.put( 1010, new String[]{ "C"," Zara "});
+    preciosMap.put(1010, 10.0);
+    productosMap.put( 1011, new String[]{ "CHO"," Zara "});
+    preciosMap.put(1011, 10.0);
+    productosMap.put( 1012, new String[]{ "CHO"," Zara "});
+    preciosMap.put(1012, 10.0);
 
+     // HOMBRES DIOR 
+    productosMap.put( 1013, new String[]{ "POLO"," Dior"});
+    preciosMap.put(1013, 10.0);
+    productosMap.put( 1014, new String[]{ "POLO"," Dior "});
+    preciosMap.put(1014, 10.0);
+    productosMap.put( 1015, new String[]{ "C"," Dior "});
+    preciosMap.put(1015, 10.0);
+    productosMap.put( 1016, new String[]{ "C"," Dior "});
+    preciosMap.put(1016, 10.0);
+    productosMap.put( 1017, new String[]{ "CHO"," Dior "});
+    preciosMap.put(1017, 10.0);
+    productosMap.put( 1018, new String[]{ "CHO"," Dior "});
+    preciosMap.put(1018, 10.0);
+     
+    // HOMBRES ZARA
+    productosMap.put( 1019, new String[]{ "POLO"," Zara "});
+    preciosMap.put(1019, 10.0);
+    productosMap.put( 1020, new String[]{ "POLO"," Zara "});
+    preciosMap.put(1020, 10.0);
+    productosMap.put( 1021, new String[]{ "C"," Zara "});
+    preciosMap.put(1021, 10.0);
+    productosMap.put( 1022, new String[]{ "C"," Zara "});
+    preciosMap.put(1022, 10.0);
+    productosMap.put( 1023, new String[]{ "CHO"," Zara "});
+    preciosMap.put(1023, 10.0);
+    productosMap.put( 1024, new String[]{ "CHO"," Zara "});
+    preciosMap.put(1024, 10.0);
+      
+}
 
-    public String[][] getProductos() { return productos;}  
-    public double[][] getPrecios() {return precios;}
-    public String[] getLista1() {return lista1;}
-    public String[] getLista2() {return lista2;}
-    public String[] getLista3() {return lista3;}
-    public ArrayList<Producto> getProductoselec() {return productoselec;}    
-    public ArrayList<ListaProducto> getListasCompradas() {return listasCompradas;}
-    
-    
-    
-    public void agregarLista(ListaProducto lista) {
-        listasCompradas.add(lista);
-    }
-    
-   
-    
     public String[] buscarProducto(int codigo, int cantidad){
-        for (int i = 0; i < 6; i++) {
-            if (productos[i][0].equals(String.valueOf(codigo))) {
-                String marca = productos[i][2];
-                int j = (marca.equals("Dior ")) ? 1 : 0;
-                double precio = precios[i][j];
-                return new String[]{
-                    productos[i][1], 
-                    productos[i][2], 
-                    String.valueOf(precio)
-                };
-            }
+      
+    if (productosMap.containsKey(codigo) && preciosMap.containsKey(codigo)){
+        String[]datosProducto = productosMap.get(codigo);
+        String nombre = datosProducto[0];
+        String marca = datosProducto[1];
+        double precio = preciosMap.get(codigo);
+ 
+                
+        return new String[]{ datosProducto[0],datosProducto[1], String.valueOf(precio)};
         }
         return null;
-    }
+        }
+       
     
     
 
@@ -150,25 +155,38 @@ this.productos= new String[][]{
         System.out.println("========= LISTA DE PRODUCTOS =========");
         System.out.printf("%-8s %-25s %-20s %-10s%n", "CODIGO", "NOMBRE", "MARCA", "PRECIO");
 
-        for (int i = 0; i < productos.length; i++) {
-            String codigo = productos[i][0];
-            String nombre = productos[i][1];
-            String marca = productos[i][2];
+        for (HashMap.Entry<Integer, String[]> entry : productosMap.entrySet()){ {
+            int codigo= entry.getKey();
+            String[]datos = entry.getValue();
+            String nombre = datos [0];
+            String marca = datos [1];
+            double precio = preciosMap.get(codigo);
 
-            int j = marca.equals("Zara") ? 0 : 1;  // 0 = Faber, 1 = Standford
-            double precio = precios[i % 6 ][j]; // caundo el residuo sea 1 sera la primera fila
+           
 
             System.out.printf("%-8s %-25s %-20s S/ %.2f%n", codigo, nombre, marca, precio);
         }
 
     }        
-        
-    public void mostrarListaProducto(String[] lista) {
-    for (int i = 0; i < lista.length; i++) {
-        System.out.printf(" %2d. %s%n", i + 1, lista[i]);
+    
+    
+  
     }
-    }
+    // Getters 
+    public HashMap<Integer, String[]> getProductosMap(){ return productosMap;}
+    public HashMap<Integer,Double> getPreciosMap() { return preciosMap; }
+    public String[]getLista1() { return lista1; }
+    public String[]getLista2() { return lista2; }
+    public String[]getLista3() { return lista3; }
+    public ArrayList<Producto> getProductoselec(){ return productoselec;}
+    public ArrayList<ListaProducto> getListaCompradas(){ return listasCompradas;}
+
+  
+  
 }
+
+
+  
 
 
    

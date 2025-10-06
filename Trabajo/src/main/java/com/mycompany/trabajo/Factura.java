@@ -50,7 +50,7 @@ public class Factura {
 
         double totalGeneral = 0;
 
-        for (ListaProducto lista : bd.getListasCompradas()) {
+        for (ListaProducto lista : bd.getListaCompradas()) {
             int cantidad = lista.getCantidad();
             double precio = lista.getPrecio();
             double total = lista.Calcularsubtotal();

@@ -19,7 +19,7 @@ import com.mycompany.trabajo.BaseDatos;
  */
 public class Trabajo {
     public static Producto IngresaProductos(){//Este metodo permite mostrar la pantalla de productos y elegir
-        int codigo, cantidad;
+        int codigo=0 , cantidad=0 ;
         Scanner dato = new Scanner(System.in);
         BaseDatos bd = new BaseDatos();
         bd.mostrarMenuProductos();
@@ -28,15 +28,26 @@ public class Trabajo {
         codigo = dato.nextInt();
         System.out.println("ingrese cantidad:");
         cantidad = dato.nextInt();
-        -----------------
+        dato.nextLine(); // Limpiar buffer 
+        
         Producto objcomprado = new Producto(codigo, cantidad, bd);
         return objcomprado;
+        }
+        catch ( Exception e ){ 
+        System.out.println (" Error al ingresar del prodcuto ");
+        dato.nextLine();// Limpiar buffer en caso de error 
+        return null;
+        }
     }
-    public static ListaProducto IngresarListas(){
+        
+    
+    
+        public static ListaProducto IngresarListas(){
         BaseDatos bd = new BaseDatos();
         Scanner dato = new Scanner(System.in);
-        int lista, cantidad;
-        double precio;
+        int lista=0 , cantidad=0 ;
+        double precio =0 ;
+
         System.out.println("Lista de utiles escolares del Colegio 1:  S/.245.50");
         bd.mostrarLista(bd.getLista1());
         System.out.println("\nLista de utiles escolares del Colegio 2:  S/.350.20");
@@ -49,7 +60,7 @@ public class Trabajo {
         lista = dato.nextInt();
         System.out.println("ingrese cantidad:");
         cantidad = dato.nextInt();
-        -------------
+        
         switch (lista) {
             case 1: precio = 245.50;            
                 break;
@@ -58,15 +69,22 @@ public class Trabajo {
             case 3: precio = 180;            
                 break;
             default:
-                throw new AssertionError();
+                System.out.println("Lista no válida debes ingresar 1, 2 0 3 ");
+            return null;
         }
         ListaProducto objlista = new ListaProducto (lista, cantidad, precio);
         return objlista;
-    }
-    public static void main(String[] args) {
+        }  
+        catch ( Exception e ){ 
+        System.out.println (" Error al ingresar del prodcuto ");
+        dato.nextLine();// Limpiar buffer en caso de error 
+        return null;
+        }
+        }
+        public static void main(String[] args) {
         Scanner dato = new Scanner(System.in);
         int comando = 0;
-        boolean Selecval = true;
+        boolean selecValida = true;
                 
         do {
             
@@ -76,7 +94,7 @@ public class Trabajo {
             
             
             try { 
-                comando = integer.parseInt(dato.nextLine());
+                comando = Integer.parseInt(dato.nextLine());
             if (comando == 1) {
                 System.out.println("Ingresaste a seccion de productos"); break;
             }else{
@@ -90,9 +108,9 @@ public class Trabajo {
             }catch ( Exception ex ){
                   System.out.println (" Error: entrada no válida. Por favor, ingresa un numero 1 0 2");  
                   dato.nextLine();
-            continue;     
+                   continue;     
             }
-        } while (Selecval);
+        } while ( selecValida );
         
         String continuar = "";
         BaseDatos bd = new BaseDatos();
@@ -108,18 +126,25 @@ public class Trabajo {
                 //se agrega el objeto a la lista para guardarlo para factura
      
                 System.out.println("Desea continaur? si/no");
-                -----------------------------
+                
                 continuar = dato.next();
-                -----------------------
+                
             } while (continuar.equalsIgnoreCase("si"));
             factura.imprimirFactura();
-        }else if (comando == 2) {
+            }else if (comando == 2) {
             do {                
                 ListaProducto objlista = IngresarListas();
-                
+                if ( objlista !=null){
                 objlista.getPrecio();
                 objlista.Calcularsubtotal();
+                System.out.println("Lista agragada" + objlista.toString());
+                //Agregar lista a la base de datos 
                 bd.agregarLista(objlista);
+                }
+                else{
+                System.out.println("No se pudo agregar la lista");
+
+                }
                 System.out.println("Desea continaur? si/no");
                 continuar = dato.next();
             } while (continuar.equalsIgnoreCase("si"));
@@ -127,7 +152,12 @@ public class Trabajo {
             factura.imprimirFacturaListas(); // Esto imprime la factura de listas escolares
 
         }
-    }
-    
-    
+
+       System.out.println("\n¡Gracias por su compra!");
+       dato.close();
+
 }
+}
+    
+    
+

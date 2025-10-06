@@ -1,3 +1,5 @@
-com\mycompany\trabajo\BaseDatos.class
 com\mycompany\trabajo\Producto.class
+com\mycompany\trabajo\ListaProducto.class
+com\mycompany\trabajo\BaseDatos.class
 com\mycompany\trabajo\Trabajo.class
+com\mycompany\trabajo\Factura.class

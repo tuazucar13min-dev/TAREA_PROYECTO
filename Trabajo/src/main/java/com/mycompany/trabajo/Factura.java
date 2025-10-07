@@ -44,9 +44,9 @@ public class Factura {
     }
     
     public void imprimirFacturaListas() {
-        System.out.println("\n========= FACTURA DE COMPRA - LISTAS ESCOLARES =========");
+        System.out.println("\n========= FACTURA DE COMPRA - LISTAS ROPAS =========");
         System.out.printf("%-5s %-20s %-10s %-10s %-10s\n",
-                "Cant", "Lista Escolar", "Precio", "Total", "# Lista");
+                "Cant", "Lista Ropa ", "Precio", "Total", "# Lista");
 
         double totalGeneral = 0;
 

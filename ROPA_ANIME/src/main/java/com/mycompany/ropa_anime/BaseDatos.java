@@ -2,20 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.mangas_anime;
+package com.mycompany.ropa_anime;
 import java.util.ArrayList;
 import java.util.HashMap; 
+/**
+ *
+ * @author CIELO
+ */
 
 public class BaseDatos {
     private HashMap<Integer, String[]> productosMap ;// para seleccionar
     private HashMap<Integer, Double > preciosMap;
-    private ArrayList<MANGAS_ANIME> productoselec;
+    private ArrayList<ROPA_ANIME > productoselec;
     private String[] lista1;// para seleccionar
     private String[] lista2;// para seleccionar
     private String[] lista3;// para seleccionar
-    private ArrayList<ListaMANGAS_ANIME> listasCompradas; //rellenar
+    private ArrayList<ListaROPA_ANIME> listasCompradas; //rellenar
     
-  public void agregarLista(ListaMANGAS_ANIME lista){
+  public void agregarLista(ListaROPA_ANIME lista){
         listasCompradas.add(lista);
     }  
 
@@ -76,22 +80,34 @@ public BaseDatos(){
     }
     
     private void inicializarProductos(){
-    // MUJERES DIOR 
-    productosMap.put( 1001, new String[]{ " Manga "," Panini "});
+    // MUJERES 
+    productosMap.put( 1001, new String[]{ "POLO"," Dior "});
     preciosMap.put(1001, 10.0);
-    productosMap.put( 1002, new String[]{ "Manga"," Panini "});
+    productosMap.put( 1002, new String[]{ "POLO"," Dior "});
     preciosMap.put(1002, 10.0);
-    productosMap.put( 1003, new String[]{ "Manga"," Panini "});
+    productosMap.put( 1003, new String[]{ "C"," Dior "});
     preciosMap.put(1003, 10.0);
-    productosMap.put( 1004, new String[]{ "Manga"," Ivrea "});
+    productosMap.put( 1004, new String[]{ "C"," Dior "});
     preciosMap.put(1004, 10.0);
-    productosMap.put( 1005, new String[]{ "Manga"," Ivrea "});
+    productosMap.put( 1005, new String[]{ "CHO"," Dior "});
     preciosMap.put(1005, 10.0);
-    productosMap.put( 1006, new String[]{ "Manga"," Ivrea "});
+    productosMap.put( 1006, new String[]{ "CHO"," Dior "});
     preciosMap.put(1006, 10.0);
      
-    
-      
+    // HOMBRES 
+    productosMap.put( 1007, new String[]{ "POLO"," Zara "});
+    preciosMap.put(1007, 10.0);
+    productosMap.put( 1008, new String[]{ "POLO"," Zara "});
+    preciosMap.put(1008, 10.0);
+    productosMap.put( 1009, new String[]{ "C"," Zara "});
+    preciosMap.put(1009, 10.0);
+    productosMap.put( 1010, new String[]{ "C"," Zara "});
+    preciosMap.put(1010, 10.0);
+    productosMap.put( 1011, new String[]{ "CHO"," Zara "});
+    preciosMap.put(1011, 10.0);
+    productosMap.put( 1012, new String[]{ "CHO"," Zara "});
+    preciosMap.put(1012, 10.0);
+     
 }
 
     public String[] buscarProducto(int codigo, int cantidad){
@@ -138,8 +154,8 @@ public BaseDatos(){
     public String[]getLista1() { return lista1; }
     public String[]getLista2() { return lista2; }
     public String[]getLista3() { return lista3; }
-    public ArrayList<MANGAS_ANIME> getProductoselec(){ return productoselec;}
-    public ArrayList<ListaMANGAS_ANIME> getListaCompradas(){ return listasCompradas;}
+    public ArrayList<ROPA_ANIME> getProductoselec(){ return productoselec;}
+    public ArrayList<ListaROPA_ANIME> getListaCompradas(){ return listasCompradas;}
 
   
   

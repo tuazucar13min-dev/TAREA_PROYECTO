@@ -2,20 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.mangas_anime;
+package com.mycompany.ropa_anime;
 
 /**
  *
  * @author CIELO
  */
-public class ListaMANGAS_ANIME {
-    
+public class ListaROPA_ANIME {
 
     private int lista;
     private int cantidad;
     private double precio;
     
-public ListaMANGAS_ANIME (int lista, int cantidad, double precio) {
+public ListaROPA_ANIME (int lista, int cantidad, double precio) {
         this.lista = lista;
         this.cantidad = cantidad;
         this.precio = precio;
@@ -35,13 +34,13 @@ public ListaMANGAS_ANIME (int lista, int cantidad, double precio) {
         String nombreLista;
         switch (lista) {
             case 1:
-                nombreLista = "Lista manga 1";
+                nombreLista = "Lista anime  1";
                 break;
             case 2:
-                nombreLista = "Lista manga 2";
+                nombreLista = "Lista anime  2";
                 break;
             case 3:
-                nombreLista = "Lista manga  3";
+                nombreLista = "Lista anime  3";
                 break;
             default:
                 nombreLista = "Lista desconocida";

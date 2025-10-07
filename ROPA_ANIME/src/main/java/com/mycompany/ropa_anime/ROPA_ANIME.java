@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.mangas_anime;
+package com.mycompany.ropa_anime;
 
 /**
  *
  * @author CIELO
  */
-public class MANGAS_ANIME {
+public class ROPA_ANIME {
 
     
     private int codigo;
@@ -19,7 +19,7 @@ public class MANGAS_ANIME {
     
     
    
-    public MANGAS_ANIME(int codigo, int cantidad, BaseDatos bd ){
+    public ROPA_ANIME (int codigo, int cantidad, BaseDatos bd ){
         this.codigo = codigo;
         this.cantidad = cantidad;
          String[] datos = bd.buscarProducto(codigo, cantidad);
@@ -58,7 +58,6 @@ public class MANGAS_ANIME {
     }
 
 }
-
 
 
 
